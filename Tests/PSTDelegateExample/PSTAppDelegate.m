@@ -15,6 +15,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    if([[UIDevice currentDevice].systemVersion floatValue] >= 9.0)
+    {
+        // iOS 9 requires rootViewController for any UIWindow and will crash otherwise
+        self.window.rootViewController = [UIViewController new];
+    }
+
     [self.window makeKeyAndVisible];
     return YES;
 }
