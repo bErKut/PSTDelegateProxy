@@ -83,7 +83,8 @@
 }
 
 - (instancetype)copyThatDefaultsToYES {
-    return [self copyThatDefaultsTo:@YES];
+    BOOL boolValueYES = YES;
+    return [self copyThatDefaultsTo:[NSValue value:&boolValueYES withObjCType:@encode(typeof(boolValueYES))]];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
